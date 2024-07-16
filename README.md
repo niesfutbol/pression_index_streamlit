@@ -1,8 +1,8 @@
 <a href="https://www.nies.futbol/"><img
-src="https://raw.githubusercontent.com/niesfutbol/streamlit_nies/develop/static/logo_nies.png" align="right" width="256"
+src="https://raw.githubusercontent.com/niesfutbol/pression_index_streamlit/develop/static/logo_nies.png" align="right" width="256"
 /></a>
 
-# Template for Streamlit projects
+# Pressure index
 
 ## Step to use
 ### Local app

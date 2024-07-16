@@ -7,25 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.1] - 2023-08-18
-
 ### Added
 
 ### Fixed
 
-- Suppress all missing import errors for all libraries.
-- Upadte codecov TOKEN.
-
 ### Changed
-
-- Move plot functions to internal module
 
 ### Removed
 
-## [0.1.0] - 2023-08-11
+## [0.1.0] - 2024-07-15
 
 ### Added
 
 - Add instructions to run app and develop environments.
 
-[0.1.1]: https://github.com/niesfutbol/streamlit_nies/compare/v0.1.0...v0.1.1
+[0.1.0]: https://github.com/niesfutbol/pression_index_streamlit/compare/v0.0.1...v0.1.0
