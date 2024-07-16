@@ -2,7 +2,7 @@ import altair as alt
 import pandas as pd
 import plotly.express as px
 import streamlit as st
-import streamlit_nies as sn
+import pression_index_st as sn
 
 
 larga = pd.read_csv("static/larga_player.csv")

@@ -1,4 +1,4 @@
-import streamlit_nies as dt
+import pression_index_st as dt
 
 
 def test_add_offset():
