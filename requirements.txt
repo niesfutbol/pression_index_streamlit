@@ -1,4 +1,5 @@
 altair
+hierarchical-review-plots
 pandas
 plotly
 streamlit

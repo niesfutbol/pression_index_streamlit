@@ -1,4 +1,4 @@
-import altair as alt
+import hierarchical_review_plots as hrp
 import pandas as pd
 import plotly.express as px
 import streamlit as st
@@ -27,6 +27,10 @@ Por ejemplo, para Atalanta 22.4% y 94.7% son sus inclinaciones menores y mayores
 
 La descripción completa la encontrarás en la entrada [La inclinación del momento y la calidad de un equipo](https://www.nies.futbol/2024/06/la-inclinacion-del-momento-y-la-calidad.html).
 """
+tilt_ppda = pd.read_csv(f"static/quality_and_pression_index.csv")
+options = hrp.select_pression_index()
+ppda_plot = hrp.make_tilt_ppda_build_up_disruption(tilt_ppda, options)
+st.altair_chart(ppda_plot)
 st.plotly_chart(fig)
 
 
