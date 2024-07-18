@@ -36,31 +36,31 @@ x_axis = st.selectbox("Selecciona la variable para el eje X", options=columns_to
 y_axis = st.selectbox("Selecciona la variable para el eje Y", options=columns_to_choice)
 
 # Crear la gráfica de dispersión
-scatter_plot = alt.Chart(pressure).mark_circle(size=60).encode(
-    x=x_axis,
-    y=y_axis,
-    tooltip=[x_axis, y_axis, "name"]
-).interactive()
+scatter_plot = (
+    alt.Chart(pressure)
+    .mark_circle(size=60)
+    .encode(x=x_axis, y=y_axis, tooltip=[x_axis, y_axis, "name"])
+    .interactive()
+)
 
 # Crear la línea de tendencia
-line = scatter_plot.transform_regression(x_axis, y_axis).mark_line(color='red')
+line = scatter_plot.transform_regression(x_axis, y_axis).mark_line(color="red")
 
 # Combinar la gráfica de dispersión y la línea de tendencia
 combined_chart = scatter_plot + line
 
 # Agregar el logotipo en la esquina inferior izquierda
 logo_url = "https://raw.githubusercontent.com/niesfutbol/hierarchical_review_mx/develop/static/logo_nies.png"
-logo = alt.Chart(pd.DataFrame({
-    'x': [pressure[x_axis].min()],
-    'y': [pressure[y_axis].min()],
-    'url': [logo_url]
-})).mark_image(
-    width=50,
-    height=50
-).encode(
-    x=alt.value(35),  # Posición fija en x
-    y=alt.value(250),  # Posición fija en y
-    url='url'
+logo = (
+    alt.Chart(
+        pd.DataFrame(
+            {"x": [pressure[x_axis].min()], "y": [pressure[y_axis].min()], "url": [logo_url]}
+        )
+    )
+    .mark_image(width=50, height=50)
+    .encode(
+        x=alt.value(35), y=alt.value(250), url="url"  # Posición fija en x  # Posición fija en y
+    )
 )
 
 # Combinar el gráfico y el logotipo
@@ -68,7 +68,6 @@ final_chart = combined_chart + logo
 
 # Mostrar la gráfica en la app de Streamlit
 st.altair_chart(final_chart, use_container_width=True)
-
 
 
 st.markdown("Made with 💖 by [nies.futbol](https://nies.futbol)")
