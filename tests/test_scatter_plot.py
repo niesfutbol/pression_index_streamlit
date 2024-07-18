@@ -24,7 +24,7 @@ def test_scatter_plot_creation(sample_data):
     assert chart.encoding.y.shorthand == y_axis, f"El eje Y debe ser {y_axis}"
 
     # Verifica que la marca es de tipo círculo
-    assert chart.mark == "circle", "La marca del gráfico debe ser de tipo círculo"
+    assert chart.mark.type == "circle", "La marca del gráfico debe ser de tipo círculo"
 
     # Verifica que el tamaño del círculo es correcto
     assert chart.mark.size == 60, "El tamaño del círculo debe ser 60"
