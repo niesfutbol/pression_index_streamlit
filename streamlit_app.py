@@ -1,8 +1,6 @@
-import hierarchical_review_plots as hrp
-import pandas as pd
-import plotly.express as px
 import streamlit as st
-import pression_index_st as sn
+import pandas as pd
+import altair as alt
 
 
 pressure = pd.read_csv("static/quality_and_pression_index.csv")
@@ -23,12 +21,15 @@ Por ejemplo, para Atalanta 22.4% y 94.7% son sus inclinaciones menores y mayores
 
 La descripción completa la encontrarás en la entrada [La inclinación del momento y la calidad de un equipo](https://www.nies.futbol/2024/06/la-inclinacion-del-momento-y-la-calidad.html).
 """
-import streamlit as st
-import pandas as pd
-import altair as alt
 
 # Datos de ejemplo
-st.title("Gráfica de Dispersión Interactiva con Línea de Tendencia y Logotipo")
+st.subheader("Relación entre los indices de presión")
+"""
+En la figura de abajo podemos ver la relación que hay entre las variables de presión y otras
+métricas.
+Por ejemplo, podemos ver que entre los puntos logrados por un equipo (`pts`) y la calidad en el
+momento (`quality`) hay una relación positiva.
+"""
 columns_to_choice = pressure.columns.drop(["id", "name"])
 # Selección de variables x e y
 x_axis = st.selectbox("Selecciona la variable para el eje X", options=columns_to_choice)
