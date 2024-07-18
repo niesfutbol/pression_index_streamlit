@@ -5,12 +5,8 @@ import streamlit as st
 import pression_index_st as sn
 
 
-larga = pd.read_csv("static/larga_player.csv")
-data = pd.read_csv("static/played_minutes.csv")
+pressure = pd.read_csv("static/quality_and_pression_index.csv")
 # ----------------- game start --------
-radar_player = "J. Musiala"
-
-fig = sn.make_bar_plot_player(larga, radar_player)
 
 PAGE_TITLE = "Indices de presión | NIES"
 PAGE_ICON = "🇮🇹"
@@ -27,11 +23,51 @@ Por ejemplo, para Atalanta 22.4% y 94.7% son sus inclinaciones menores y mayores
 
 La descripción completa la encontrarás en la entrada [La inclinación del momento y la calidad de un equipo](https://www.nies.futbol/2024/06/la-inclinacion-del-momento-y-la-calidad.html).
 """
-tilt_ppda = pd.read_csv(f"static/quality_and_pression_index.csv")
-options = hrp.select_pression_index()
-ppda_plot = hrp.make_tilt_ppda_build_up_disruption(tilt_ppda, options)
-st.altair_chart(ppda_plot)
-st.plotly_chart(fig)
+import streamlit as st
+import pandas as pd
+import altair as alt
+
+# Datos de ejemplo
+st.title("Gráfica de Dispersión Interactiva con Línea de Tendencia y Logotipo")
+columns_to_choice = pressure.columns.drop(["id", "name"])
+# Selección de variables x e y
+x_axis = st.selectbox("Selecciona la variable para el eje X", options=columns_to_choice)
+y_axis = st.selectbox("Selecciona la variable para el eje Y", options=columns_to_choice)
+
+# Crear la gráfica de dispersión
+scatter_plot = alt.Chart(pressure).mark_circle(size=60).encode(
+    x=x_axis,
+    y=y_axis,
+    tooltip=[x_axis, y_axis, "name"]
+).interactive()
+
+# Crear la línea de tendencia
+line = scatter_plot.transform_regression(x_axis, y_axis).mark_line(color='red')
+
+# Combinar la gráfica de dispersión y la línea de tendencia
+combined_chart = scatter_plot + line
+
+# Agregar el logotipo en la esquina inferior izquierda
+logo_url = "https://raw.githubusercontent.com/niesfutbol/hierarchical_review_mx/develop/static/logo_nies.png"
+logo = alt.Chart(pd.DataFrame({
+    'x': [pressure[x_axis].min()],
+    'y': [pressure[y_axis].min()],
+    'url': [logo_url]
+})).mark_image(
+    width=50,
+    height=50
+).encode(
+    x=alt.value(35),  # Posición fija en x
+    y=alt.value(250),  # Posición fija en y
+    url='url'
+)
+
+# Combinar el gráfico y el logotipo
+final_chart = combined_chart + logo
+
+# Mostrar la gráfica en la app de Streamlit
+st.altair_chart(final_chart, use_container_width=True)
+
 
 
 st.markdown("Made with 💖 by [nies.futbol](https://nies.futbol)")
