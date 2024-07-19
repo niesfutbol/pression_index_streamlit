@@ -1,5 +1,4 @@
 import altair as alt
-import pandas as pd
 
 
 def create_scatter_plot(data, x_axis, y_axis):
