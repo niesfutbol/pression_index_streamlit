@@ -1,3 +1,4 @@
+import json
 import streamlit as st
 import pandas as pd
 import altair as alt
@@ -30,11 +31,21 @@ métricas.
 Por ejemplo, podemos ver que entre los puntos logrados por un equipo (`pts`) y la calidad en el
 momento (`quality`) hay una relación positiva.
 """
+path_josn = "static/datapackage.json"
+f = open(path_josn)
+data = json.load(f)
+campos = data["resources"][0]["schema"]["fields"]
 columns_to_choice = pressure.columns.drop(["id", "name"])
+long_names = {
+    campo["long_name"]: campo["name"] for campo in campos if campo["name"] in columns_to_choice
+}
+columns_long_name = [llave for llave in long_names.keys()]
 # Selección de variables x e y
-x_axis = st.selectbox("Selecciona la variable para el eje X", options=columns_to_choice)
-y_axis = st.selectbox("Selecciona la variable para el eje Y", options=columns_to_choice)
+x_long_name = st.selectbox("Selecciona la variable para el eje X", options=columns_long_name)
+y_long_name = st.selectbox("Selecciona la variable para el eje Y", options=columns_long_name)
 
+x_axis = long_names[x_long_name]
+y_axis = long_names[y_long_name]
 # Crear la gráfica de dispersión
 scatter_plot = (
     alt.Chart(pressure)
