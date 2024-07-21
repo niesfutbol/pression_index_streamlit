@@ -26,7 +26,9 @@
                     {
                         "name": "pts",
                         "type": "integer",
-                        "format": "default"
+                        "format": "default",
+                        "long_name": "Points",
+                        "description": "Points obtained by teams"
                     },
                     {
                         "name": "idx",
@@ -36,7 +38,9 @@
                     {
                         "name": "xG",
                         "type": "number",
-                        "format": "default"
+                        "format": "default",
+                        "long_name": "Expected goals",
+                        "description": "It is the likelihood of scoring for every shot made in the game"
                     },
                     {
                         "name": "build_up_disruption",
@@ -62,7 +66,9 @@
                     {
                         "name": "delta",
                         "type": "number",
-                        "format": "default"
+                        "format": "default",
+                        "long_name": "Positional Dominance Index",
+                        "description": "PDI indicates a team's efficiency in converting ball possession into territorial dominance, highlighting the balance between controlling the ball and creating offensive opportunities."
                     },
                     {
                         "name": "tempo",
@@ -74,19 +80,23 @@
                     {
                         "name": "offe_tran",
                         "type": "number",
-                        "format": "default"
+                        "format": "default",
+                        "long_name": "Offensive Transition Efficiency Index",
+                        "description": "The metric indicates how effectively a team transitions from ball control to quality goal opportunities, reflecting rapid attacks and potential difficulties in generating effective chances"
                     },
                     {
                         "name": "high_pression",
                         "type": "number",
                         "format": "default",
-                        "long_name": "High pressing"
+                        "long_name": "High press",
+                        "description": "Measures pressure on opponents in their own half, with the aim of quickly regaining possession and disrupting their play."
                     },
                     {
                         "name": "ggpi",
                         "type": "number",
                         "format": "default",
-                        "long_name": "Gegenpressing index"
+                        "long_name": "Gegenpressing index",
+                        "description": "GGPI aims to measure the effectiveness of pressure. It is a composite index considering the pressing after losing possession and the fast counterattacks."
                     },
                     {
                         "name": "iqr",
