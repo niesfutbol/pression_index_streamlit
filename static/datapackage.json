@@ -1,0 +1,112 @@
+{
+    "name": "change-me",
+    "schema": "tabular-data-package",
+    "profile": "tabular-data-package",
+    "resources": [
+        {
+            "path": "quality_and_pression_index.csv",
+            "profile": "tabular-data-resource",
+            "name": "quality_and_pression_index",
+            "format": "csv",
+            "mediatype": "text/csv",
+            "encoding": "utf-8",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "integer",
+                        "format": "default"
+                    },
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "format": "default",
+                        "long_name": "Team name"
+                    },
+                    {
+                        "name": "pts",
+                        "type": "integer",
+                        "format": "default"
+                    },
+                    {
+                        "name": "idx",
+                        "type": "integer",
+                        "format": "default"
+                    },
+                    {
+                        "name": "xG",
+                        "type": "number",
+                        "format": "default"
+                    },
+                    {
+                        "name": "build_up_disruption",
+                        "type": "number",
+                        "format": "default",
+                        "long_name": "Buildup Disruption Percentage",
+                        "description": "Quantifies the destructive effect of pressing on the opponent’s pass completion rate."
+                    },
+                    {
+                        "name": "ppda",
+                        "type": "number",
+                        "format": "default",
+                        "long_name": "Passes Allowed Per Defensive Action",
+                        "description": "A metric to quantify high press intensity. Only events in a subset of the field (final 60%) are taken in consideration"
+                    },
+                    {
+                        "name": "tilt",
+                        "type": "number",
+                        "format": "default",
+                        "long_name": "Field tilt",
+                        "description": "Describes the percentage of all final third passes belonging to a team in all of their matches, giving a measure of territorial dominance."
+                    },
+                    {
+                        "name": "delta",
+                        "type": "number",
+                        "format": "default"
+                    },
+                    {
+                        "name": "tempo",
+                        "type": "number",
+                        "format": "default",
+                        "long_name": "Match tempo",
+                        "description": "Number of team passes per minute of pure ball possession"
+                    },
+                    {
+                        "name": "offe_tran",
+                        "type": "number",
+                        "format": "default"
+                    },
+                    {
+                        "name": "high_pression",
+                        "type": "number",
+                        "format": "default",
+                        "long_name": "High pressing"
+                    },
+                    {
+                        "name": "ggpi",
+                        "type": "number",
+                        "format": "default",
+                        "long_name": "Gegenpressing index"
+                    },
+                    {
+                        "name": "iqr",
+                        "type": "number",
+                        "format": "default",
+                        "long_name": "Momentum Tilt Dispertion",
+                        "description": "Measure of statistical dispersion of the momentum tilt"
+                    },
+                    {
+                        "name": "quality",
+                        "type": "number",
+                        "format": "default",
+                        "long_name": "Momentum Tilt Quality",
+                        "description": "It is the value below which 5% of the observations in the momentum tilt are found."
+                    }
+                ],
+                "missingValues": [
+                    ""
+                ]
+            }
+        }
+    ]
+}
