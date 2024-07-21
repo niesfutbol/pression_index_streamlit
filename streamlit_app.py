@@ -50,7 +50,11 @@ y_axis = long_names[y_long_name]
 scatter_plot = (
     alt.Chart(pressure)
     .mark_circle(size=60)
-    .encode(x=x_axis, y=y_axis, tooltip=[x_axis, y_axis, "name"])
+    .encode(
+        x=alt.X(x_axis, title=x_long_name),
+        y=alt.Y(y_axis, title=y_long_name),
+        tooltip=[x_axis, y_axis, "name"],
+    )
     .interactive()
 )
 
