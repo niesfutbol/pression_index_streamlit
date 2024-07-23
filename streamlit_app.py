@@ -11,30 +11,25 @@ PAGE_TITLE = "Indices de presión | NIES"
 PAGE_ICON = "🇮🇹"
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
 
-st.subheader("La relación entre los índices de presión")
-"""
-La inclinación del momento describe el porcentaje de todo el momento generado que pertenece a un
-equipo. Es decir, si sumamos todo el momento generado en un partido, la inclinación del momento es
-la proporción del momento de cada equipo.
-Por ejemplo, el último partido de la Serie A 2023-24 fue entre Atalanta vs Fiorentina.
-La inclinación del momento fue 65.5% para el Atalanta y 34.5% para la Fiorentina.
-Para cada equipo tenemos 38 valores de inclinación del momento, un por cada partido que jugaron.
-Por ejemplo, para Atalanta 22.4% y 94.7% son sus inclinaciones menores y mayores durante el torneo.
-
-La descripción completa la encontrarás en la entrada [La inclinación del momento y la calidad de un equipo](https://www.nies.futbol/2024/06/la-inclinacion-del-momento-y-la-calidad.html).
-"""
-
-# Datos de ejemplo
 st.subheader("Relación entre los indices de presión")
 """
+El objetivo de la siguiente aplicación es revisar la relación que existre entre algunos índices de
+presión. Trabajamos con los datos de la Serie A 2023-24. Algunas métricas son diseñadas desde
+[nies](https://www.nies.futbol/) y otras son proporcionadas por terceros.
+
+#### Modo de uso
+
 En la figura de abajo podemos ver la relación que hay entre las variables de presión y otras
 métricas.
 Por ejemplo, podemos ver que entre los puntos logrados por un equipo (`pts`) y la calidad en el
 momento (`quality`) hay una relación positiva.
-
 También puedes ver que entre el índice gegenpressing (`ggpi`) y los pases permitidos por acción
 defensiva (`ppda`) hay una relación inversa.
+
+La descripción de cada variable la encontrarás abajo de la casilla de selección.
+En la sección de referencias enlistamos notas en las que podrás abundar en el detalle de cada métricas.
 """
+
 path_josn = "static/datapackage.json"
 f = open(path_josn)
 data = json.load(f)
@@ -93,5 +88,15 @@ final_chart = combined_chart + logo
 # Mostrar la gráfica en la app de Streamlit
 st.altair_chart(final_chart, use_container_width=True)
 
+"""
+#### Referencias
+
+- [Inclinando la Balanza](https://www.nies.futbol/2023/03/inclinando-la-balanza.html)
+- [Índices de presión](https://www.nies.futbol/2023/04/indices-de-presion-ppda-y-build-up.html)
+- [El gegenpressing reinventado](https://www.nies.futbol/2024/01/el-gegenpressing-reinventado-mas-alla.html)
+- [La inclinación del momento y la calidad de un equipo](https://www.nies.futbol/2024/06/la-inclinacion-del-momento-y-la-calidad.html)
+- [Presión o calidad, qué determina el lugar en la tabla](https://www.nies.futbol/2024/07/presion-o-calidad-que-determina-el.html)
+- [Transición al ataque y dominancia posiciona]()
+"""
 
 st.markdown("Made with 💖 by [nies.futbol](https://nies.futbol)")
