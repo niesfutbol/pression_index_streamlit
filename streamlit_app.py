@@ -13,8 +13,9 @@ st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
 
 st.subheader("La relación entre los índices de presión")
 """
-Si sumamos todo el momento generado por cada equipo, la inclinación del momento es la proporción del
-momento de cada equipo.
+La inclinación del momento describe el porcentaje de todo el momento generado que pertenece a un
+equipo. Es decir, si sumamos todo el momento generado en un partido, la inclinación del momento es
+la proporción del momento de cada equipo.
 Por ejemplo, el último partido de la Serie A 2023-24 fue entre Atalanta vs Fiorentina.
 La inclinación del momento fue 65.5% para el Atalanta y 34.5% para la Fiorentina.
 Para cada equipo tenemos 38 valores de inclinación del momento, un por cada partido que jugaron.
@@ -30,6 +31,9 @@ En la figura de abajo podemos ver la relación que hay entre las variables de pr
 métricas.
 Por ejemplo, podemos ver que entre los puntos logrados por un equipo (`pts`) y la calidad en el
 momento (`quality`) hay una relación positiva.
+
+También puedes ver que entre el índice gegenpressing (`ggpi`) y los pases permitidos por acción
+defensiva (`ppda`) hay una relación inversa.
 """
 path_josn = "static/datapackage.json"
 f = open(path_josn)
