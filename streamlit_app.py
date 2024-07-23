@@ -39,10 +39,15 @@ columns_to_choice = pressure.columns.drop(["id", "name"])
 long_names = {
     campo["long_name"]: campo["name"] for campo in campos if campo["name"] in columns_to_choice
 }
+descriptions = {
+    campo["long_name"]: campo["description"] for campo in campos if campo["name"] in columns_to_choice
+}
 columns_long_name = [llave for llave in long_names.keys()]
 # Selección de variables x e y
 x_long_name = st.selectbox("Selecciona la variable para el eje X", options=columns_long_name)
+st.text(f"{x_long_name}: {descriptions[x_long_name]}")
 y_long_name = st.selectbox("Selecciona la variable para el eje Y", options=columns_long_name)
+st.text(f"{y_long_name}: {descriptions[y_long_name]}")
 
 x_axis = long_names[x_long_name]
 y_axis = long_names[y_long_name]
