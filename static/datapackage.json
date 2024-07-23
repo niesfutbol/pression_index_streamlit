@@ -35,7 +35,8 @@
                         "name": "idx",
                         "type": "integer",
                         "format": "default",
-                        "long_name": "idx"
+                        "long_name": "idx",
+                        "description": ""
                     },
                     {
                         "name": "xG",
